@@ -2,15 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/milk"
     android:orientation="vertical">
 
-    <include layout="@layout/title_bar" />
-
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的"
-        android:textColor="@color/black" />
+        android:layout_height="185dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/text_radius">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="个人中心"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <com.sqzn.pl.storehouseend.Views.CircleImageView
+            android:id="@+id/head_portrait_riv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/tv_mine_account"
+            android:src="@mipmap/icon" />
+
+        <TextView
+            android:id="@+id/tv_mine_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="15997544321"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+    </RelativeLayout>
 
 
 </LinearLayout>

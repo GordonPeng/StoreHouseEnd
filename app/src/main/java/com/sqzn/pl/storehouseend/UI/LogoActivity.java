@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 
 import com.sqzn.pl.storehouseend.R;
+import com.sqzn.pl.storehouseend.SHApplication;
 import com.sqzn.pl.storehouseend.Utils.Util;
 
 import butterknife.ButterKnife;
@@ -28,6 +29,7 @@ public class LogoActivity extends BaseActivity {
         setContentView(R.layout.activity_logo);
 
         ButterKnife.bind(this);
+        SHApplication.getInstance().addActivity(this);
         preferences = Util.getSharedPreferences(mContext);
         editor = preferences.edit();
         enterTag = preferences.getInt("enterTag", 0);

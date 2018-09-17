@@ -6,6 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sqzn.pl.storehouseend.R;
+import com.sqzn.pl.storehouseend.SHApplication;
 import com.sqzn.pl.storehouseend.Views.ClearEditText;
 
 import butterknife.BindView;
@@ -32,6 +33,7 @@ public class LoginActivity extends BaseActivity {
     public void initViews() {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        SHApplication.getInstance().addActivity(this);
 
 
     }

@@ -6,6 +6,8 @@
     <color name="white">#ffffff</color>
     <color name="area_back">#bababa</color>
     <color name="black">#000000</color>
-    <color name="gray">#595b5d</color>
+    <color name="gray">#8a8a8a</color>
     <color name="background">#29283a</color>
+    <color name="yellow">#f19602</color>
+    <color name="milk">#fbe9c8</color>
 </resources>

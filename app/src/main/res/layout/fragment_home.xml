@@ -19,6 +19,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ll_store_in"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
@@ -60,6 +61,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/ll_store_out"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
@@ -110,6 +112,7 @@
             android:layout_weight="1">
 
             <LinearLayout
+                android:id="@+id/ll_store_count"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
@@ -152,6 +155,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_store_scan"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"
@@ -172,7 +176,7 @@
                         android:layout_height="100dp"
                         android:layout_gravity="bottom"
                         android:scaleType="fitXY"
-                        android:src="@mipmap/get_vercode" />
+                        android:src="@mipmap/store_scan" />
 
                 </LinearLayout>
 

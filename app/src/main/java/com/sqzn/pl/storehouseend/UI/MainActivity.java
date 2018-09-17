@@ -1,15 +1,20 @@
 package com.sqzn.pl.storehouseend.UI;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.zxing.integration.android.IntentIntegrator;
 import com.sqzn.pl.storehouseend.Fragment.HomeFragment;
 import com.sqzn.pl.storehouseend.Fragment.MineFragment;
 import com.sqzn.pl.storehouseend.R;
+import com.sqzn.pl.storehouseend.SHApplication;
+import com.sqzn.pl.storehouseend.Utils.Util;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,10 +30,12 @@ public class MainActivity extends BaseActivity {
     private FragmentTransaction fragmentTransaction;
     private HomeFragment homeFragment;
     private MineFragment mineFragment;
+    private Context mContext;
 
 
     @Override
     public void initViews() {
+        mContext = this;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
@@ -45,6 +52,7 @@ public class MainActivity extends BaseActivity {
         home.setSelected(true);
 
 
+        SHApplication.getInstance().addActivity(this);
     }
 
 
@@ -66,7 +74,17 @@ public class MainActivity extends BaseActivity {
                 mine.setSelected(true);
                 break;
         }
+    }
 
+
+    //双击退出程序
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Util.BackToLanuch(mContext);
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 

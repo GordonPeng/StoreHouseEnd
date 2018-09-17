@@ -3,6 +3,7 @@ package com.sqzn.pl.storehouseend.UI;
 import android.content.Intent;
 
 import com.sqzn.pl.storehouseend.R;
+import com.sqzn.pl.storehouseend.SHApplication;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -14,6 +15,7 @@ class GuideActivity extends BaseActivity {
         setContentView(R.layout.activity_guide);
 
         ButterKnife.bind(this);
+        SHApplication.getInstance().addActivity(this);
 
 
 

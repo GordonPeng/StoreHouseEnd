@@ -33,7 +33,6 @@ public class LoginActivity extends BaseActivity {
     public void initViews() {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        SHApplication.getInstance().addActivity(this);
 
 
     }
@@ -49,6 +48,7 @@ public class LoginActivity extends BaseActivity {
             case R.id.btn_login:
                 Intent intent2 = new Intent(this, MainActivity.class);
                 startActivity(intent2);
+                finish();
                 break;
             case R.id.tv_login_by_method:
                 if (loginMethood ==1){

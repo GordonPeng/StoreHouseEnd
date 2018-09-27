@@ -1,20 +1,24 @@
 package com.sqzn.pl.storehouseend.UI;
 
 import android.Manifest;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-import com.journeyapps.barcodescanner.CaptureActivity;
 import com.sqzn.pl.storehouseend.R;
+import com.sqzn.pl.storehouseend.Utils.ImageUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +30,14 @@ public class ScanActivity extends BaseActivity {
     public static final int REQUEST_CODE_SCAN = 101;
     public static final int PHOTO_REQUEST_SAOYISAO = 100;
     private String TAG = "TT";
+//    /**
+//     * 扫描跳转Activity RequestCode
+//     */
+//    public static final int REQUEST_CODE = 111;
+//    /**
+//     * 选择系统图片Request Code
+//     */
+//    public static final int REQUEST_IMAGE = 112;
 
     @Override
     public void initViews() {
@@ -43,38 +55,62 @@ public class ScanActivity extends BaseActivity {
         } else {
             // 权限已经取得的情况下调用
             // 调用扫一扫
-
+//            Intent intent = new Intent(this, CaptureActivity.class);
+//            startActivityForResult(intent, REQUEST_CODE);
 
         }
 
     }
 
-    /**
-     * 重写申请权限操作返回值的方法
-     **/
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PHOTO_REQUEST_SAOYISAO:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // 权限申请成功，扫一扫
-                    Intent intent = new Intent(ScanActivity.this,
-                            CaptureActivity.class);
-                    startActivityForResult(intent, REQUEST_CODE_SCAN);
-                } else {
-                    Toast.makeText(this, "无相机调用权限，扫一扫功能无法使用，", Toast.LENGTH_SHORT).show();
-                }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        /**
+//         * 处理二维码扫描结果
+//         */
+//        if (requestCode == REQUEST_CODE) {
+//            //处理扫描结果（在界面上显示）
+//            if (null != data) {
+//                Bundle bundle = data.getExtras();
+//                if (bundle == null) {
+//                    return;
+//                }
+//                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+//                    String result = bundle.getString(CodeUtils.RESULT_STRING);
+//                    Toast.makeText(ScanActivity.this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+//                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
+//                    Toast.makeText(ScanActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        }
+//
+//        /**
+//         * 选择系统图片并解析
+//         */
+//        else if (requestCode == REQUEST_IMAGE) {
+//            if (data != null) {
+//                Uri uri = data.getData();
+//                try {
+//                    CodeUtils.analyzeBitmap(ImageUtil.getImageAbsolutePath(this, uri), new CodeUtils.AnalyzeCallback() {
+//                        @Override
+//                        public void onAnalyzeSuccess(Bitmap mBitmap, String result) {
+//                            Toast.makeText(ScanActivity.this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+//                        }
+//
+//                        @Override
+//                        public void onAnalyzeFailed() {
+//                            Toast.makeText(ScanActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+//                        }
+//                    });
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }
+////        else if (requestCode == REQUEST_CAMERA_PERM) {
+////            Toast.makeText(this, "从设置页面返回...", Toast.LENGTH_SHORT)
+////                    .show();
+////        }
+//    }
 
-    /**
-     * 重写取得活动返回值的方法
-     **/
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        // 扫一扫返回值
-
-
-    }
 
 }

@@ -2,9 +2,6 @@ package com.sqzn.pl.storehouseend;
 
 import android.app.Activity;
 import android.app.Application;
-
-import com.sqzn.pl.storehouseend.Utils.Util;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,8 +13,6 @@ public class SHApplication extends Application {
 
     /**
      * 单例模式中获取唯一的MyApplication实例
-     *
-     * @return
      */
     public static SHApplication getInstance() {
         if (null == instance) {

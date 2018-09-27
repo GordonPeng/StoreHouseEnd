@@ -9,7 +9,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.zxing.integration.android.IntentIntegrator;
 import com.sqzn.pl.storehouseend.Fragment.HomeFragment;
 import com.sqzn.pl.storehouseend.Fragment.MineFragment;
 import com.sqzn.pl.storehouseend.R;
@@ -27,11 +26,15 @@ public class MainActivity extends BaseActivity {
     TextView home;
     @BindView(R.id.mine)
     TextView mine;
-    private FragmentTransaction fragmentTransaction;
-    private HomeFragment homeFragment;
-    private MineFragment mineFragment;
+    @BindView(R.id.tv_title)
+    TextView tv_title;
+    HomeFragment homeFragment = new HomeFragment();
+    MineFragment mineFragment = new MineFragment();
+    Fragment fragment;
     private Context mContext;
 
+    public static Fragment[] mFragments;
+    public static View[] views;
 
     @Override
     public void initViews() {
@@ -39,18 +42,13 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
         //底部菜单和页面切换联动
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
-        homeFragment = new HomeFragment();
-        mineFragment = new MineFragment();
-        fragmentTransaction.add(R.id.main_fl, homeFragment, "mine")
-                .add(R.id.main_fl, mineFragment, "mine")
-                .hide(mineFragment).commit();
-        mCurrentFragmentTag = "home";
+        mFragments = new Fragment[2];
+        mFragments[0] = homeFragment;
+        mFragments[1] = mineFragment;
+        setFragmentShow(0, "主页");
         home.setSelected(true);
-
+        mine.setSelected(false);
 
         SHApplication.getInstance().addActivity(this);
     }
@@ -62,20 +60,39 @@ public class MainActivity extends BaseActivity {
 
         switch (view.getId()) {
             case R.id.home:
-                getSupportFragmentManager().beginTransaction().show(homeFragment).hide(mineFragment).commit();
-                mCurrentFragmentTag = "home";
+                setFragmentShow(0, "主页");
                 home.setSelected(true);
                 mine.setSelected(false);
                 break;
             case R.id.mine:
-                getSupportFragmentManager().beginTransaction().show(mineFragment).hide(homeFragment).commit();
-                mCurrentFragmentTag = "mine";
+                setFragmentShow(1, "我的");
                 home.setSelected(false);
                 mine.setSelected(true);
                 break;
         }
     }
 
+    // 显示当前fragment
+    private void setFragmentShow(int whichIsDefault, String title) {
+        if (mFragments[whichIsDefault].isAdded()) {
+            getSupportFragmentManager().beginTransaction()
+//                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                    .hide(mFragments[0])
+                    .hide(mFragments[1])
+                    .show(mFragments[whichIsDefault])
+                    .commit();
+        } else {
+            getSupportFragmentManager().beginTransaction()
+//                    .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                    .hide(mFragments[0])
+                    .hide(mFragments[1])
+                    .add(R.id.main_fl, mFragments[whichIsDefault])
+                    .show(mFragments[whichIsDefault])
+                    .commit();
+
+        }
+        tv_title.setText(title);
+    }
 
     //双击退出程序
     @Override

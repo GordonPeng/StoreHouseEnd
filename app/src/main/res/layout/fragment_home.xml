@@ -25,7 +25,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/area_radius"
+                android:background="@drawable/radius_area"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -67,7 +67,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/area_radius"
+                android:background="@drawable/radius_area"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -118,7 +118,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/area_radius"
+                android:background="@drawable/radius_area"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -161,7 +161,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/area_radius"
+                android:background="@drawable/radius_area"
                 android:gravity="center"
                 android:orientation="vertical">
 

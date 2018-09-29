@@ -39,6 +39,15 @@ public class SHApplication extends Application {
             activitys.remove(activitys.size() - 1);
         }
     }
+
+    public Activity getlastActivity() {
+        if (activitys.size() >= 1) {
+            return activitys.get(activitys.size() - 1);
+        } else {
+            return null;
+        }
+    }
+
     // 遍历所有Activity并finish
     public void exit() {
         if (activitys != null && activitys.size() > 0) {

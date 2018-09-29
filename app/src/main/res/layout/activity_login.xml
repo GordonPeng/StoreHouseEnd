@@ -42,26 +42,38 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="请输入登录密码"
-                    android:maxLength="11" />
+                    android:inputType="textPassword"
+                    android:maxLength="8" />
 
                 <LinearLayout
                     android:id="@+id/ll_vercode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    >
 
                     <com.sqzn.pl.storehouseend.Views.ClearEditText
-                        android:id="@+id/et_vercode"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/et_login_vercode"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:hint="请输入手机验证码"
-                        android:maxLength="11" />
+                        android:inputType="number"
+                        android:maxLength="6" />
 
-                    <Button
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/getcode_login"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:layout_margin="3dp"
                         android:layout_height="wrap_content"
+                        android:background="@color/yellow"
+                        android:padding="5dp"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:singleLine="true"
                         android:text="获取验证码" />
 
                 </LinearLayout>
@@ -80,7 +92,7 @@
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/text_radius"
+                    android:background="@drawable/radius_text"
                     android:text="登录"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

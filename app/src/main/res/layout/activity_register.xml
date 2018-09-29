@@ -21,20 +21,19 @@
 
 
         <com.sqzn.pl.storehouseend.Views.ClearEditText
-            android:id="@+id/et_account"
+            android:id="@+id/et_register_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="账号/手机号"
             android:maxLength="11" />
 
         <LinearLayout
-            android:id="@+id/ll_vercode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <com.sqzn.pl.storehouseend.Views.ClearEditText
-                android:id="@+id/et_vercode"
+                android:id="@+id/et_register_vercode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -53,7 +52,7 @@
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_radius"
+            android:background="@drawable/radius_text"
             android:text="注册"
             android:textColor="@color/white"
             android:textSize="16sp" />

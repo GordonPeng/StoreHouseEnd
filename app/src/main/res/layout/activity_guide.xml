@@ -18,7 +18,7 @@
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="21dp"
-            android:background="@drawable/text_radius"
+            android:background="@drawable/radius_text"
             android:text="立即体验" />
 
     </RelativeLayout>

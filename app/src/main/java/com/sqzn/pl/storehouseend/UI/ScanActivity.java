@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 
 import com.sqzn.pl.storehouseend.R;
 import com.sqzn.pl.storehouseend.Utils.ImageUtil;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,14 +33,14 @@ public class ScanActivity extends BaseActivity {
     public static final int REQUEST_CODE_SCAN = 101;
     public static final int PHOTO_REQUEST_SAOYISAO = 100;
     private String TAG = "TT";
-//    /**
-//     * 扫描跳转Activity RequestCode
-//     */
-//    public static final int REQUEST_CODE = 111;
-//    /**
-//     * 选择系统图片Request Code
-//     */
-//    public static final int REQUEST_IMAGE = 112;
+    /**
+     * 扫描跳转Activity RequestCode
+     */
+    public static final int REQUEST_CODE = 111;
+    /**
+     * 选择系统图片Request Code
+     */
+    public static final int REQUEST_IMAGE = 112;
 
     @Override
     public void initViews() {
@@ -49,21 +52,22 @@ public class ScanActivity extends BaseActivity {
 
     @OnClick(R.id.tv_scan_result)
     public void onClick(View view) {
-        // 取得相机权限
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, PHOTO_REQUEST_SAOYISAO);
-        } else {
-            // 权限已经取得的情况下调用
-            // 调用扫一扫
-//            Intent intent = new Intent(this, CaptureActivity.class);
-//            startActivityForResult(intent, REQUEST_CODE);
 
-        }
+//        startActivityForResult(intent, REQUEST_CODE);
+//
+//        // 取得相机权限
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            requestPermissions(new String[]{Manifest.permission.CAMERA}, PHOTO_REQUEST_SAOYISAO);
+//        } else {
+//            // 权限已经取得的情况下调用
+//            // 调用扫一扫
+//
+//        }
 
     }
 
 //    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 //        /**
 //         * 处理二维码扫描结果
 //         */
@@ -76,9 +80,9 @@ public class ScanActivity extends BaseActivity {
 //                }
 //                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
 //                    String result = bundle.getString(CodeUtils.RESULT_STRING);
-//                    Toast.makeText(ScanActivity.this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
 //                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-//                    Toast.makeText(ScanActivity.this, "解析二维码失败", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, "解析二维码失败", Toast.LENGTH_LONG).show();
 //                }
 //            }
 //        }
@@ -106,11 +110,11 @@ public class ScanActivity extends BaseActivity {
 //                }
 //            }
 //        }
+//
 ////        else if (requestCode == REQUEST_CAMERA_PERM) {
 ////            Toast.makeText(this, "从设置页面返回...", Toast.LENGTH_SHORT)
 ////                    .show();
 ////        }
 //    }
-
 
 }

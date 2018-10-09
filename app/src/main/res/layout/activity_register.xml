@@ -2,22 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="20dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:padding="20dp">
 
         <TextView
             android:layout_width="match_parent"
-        android:text="新用户注册"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="25sp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:layout_height="wrap_content" />
+            android:gravity="center"
+            android:text="新用户注册"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp" />
 
 
         <com.sqzn.pl.storehouseend.Views.ClearEditText
@@ -28,30 +29,45 @@
             android:maxLength="11" />
 
         <LinearLayout
+            android:id="@+id/ll_vercode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <com.sqzn.pl.storehouseend.Views.ClearEditText
                 android:id="@+id/et_register_vercode"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:hint="请输入手机验证码"
-                android:maxLength="11" />
+                android:inputType="number"
+                android:maxLength="6" />
 
-            <Button
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/getcode_register"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="获取验证码" />
-
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@color/yellow"
+                android:gravity="center"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="获取验证码"
+                android:textSize="12sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
         <Button
-            android:layout_marginTop="20dp"
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@drawable/radius_text"
             android:text="注册"
             android:textColor="@color/white"
